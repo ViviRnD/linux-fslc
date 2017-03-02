@@ -237,12 +237,6 @@
 	status = "okay";
 };
 
-&hdmi_cec {
-	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_hummingboard2_hdmi>;
-	status = "okay";
-};
-
 &i2c1 {
 	clock-frequency = <100000>;
 	pinctrl-names = "default";
@@ -401,12 +395,6 @@
 		pinctrl_hummingboard2_gpio7_9: hummingboard2-gpio7_9 {
 			fsl,pins = <
 				MX6QDL_PAD_SD4_CMD__GPIO7_IO09 0x80000000
-			>;
-		};
-
-		pinctrl_hummingboard2_hdmi: hummingboard2-hdmi {
-			fsl,pins = <
-				MX6QDL_PAD_KEY_ROW2__HDMI_TX_CEC_LINE 0x1f8b0
 			>;
 		};
 
