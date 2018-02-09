@@ -263,6 +263,17 @@ static int ar8035_phy_fixup(struct phy_device *dev)
 	 */
 	ar8031_phy_fixup(dev);
 
+	/* supposedly disable advertising gigabit */
+	val = phy_read(dev, 0x9);
+	val &= ~0x0300;
+	phy_write(dev, 0x9, val);
+	/* supposedly disable gigabit */
+	phy_write(dev, 0x14, 0x092c);
+	/* software reset */
+	val = phy_read(dev, 0x0);
+	val |= 0x8000;
+	phy_write(dev, 0x0, val);
+
 	/*check phy power*/
 	val = phy_read(dev, 0x0);
 	if (val & BMCR_PDOWN)
